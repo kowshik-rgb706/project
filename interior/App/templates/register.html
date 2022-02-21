@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Edge Interior | Register</title>
-	<style>
-		body {
-    background:black;
+    <style>
+        body {
+    background:#333;
 }
 #login {
 	-webkit-perspective: 1000px;
@@ -33,9 +30,6 @@
 }
 .login .form-group {
 	margin-bottom:17px;
-}
-.h3{
-    margin-bottom:17px;
 }
 .login .form-control,
 .login .btn {
@@ -82,11 +76,9 @@
         border-right-style: none;
         border-right-width: medium;
 }
-	</style>
+    </style>
 </head>
 <body>
-
-
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -94,41 +86,48 @@
 
 <div class="col-md-4 col-md-offset-4" id="login">
 						<section id="inner-wrapper" class="login">
-							<center><h3>Regsiter</h3></center>
 							<article>
-								<form action="reg_done/" method="post">
-
-									    {% csrf_token %}
-
+								<form method="post" action="">
+                                    <h3>Register</h3>
+                                    {% csrf_token %}
 									<div class="form-group">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="fa fa-user"> </i></span>
-											<input name="name" type="text" class="form-control" placeholder="Name">
-										</div>
+                                            {{form.username.label}}:
+                                            {{form.username}}
+                                        </div>
 									</div>
 									<div class="form-group">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="fa fa-envelope"> </i></span>
-											<input name="mail"type="email" class="form-control" placeholder="Email Address">
+											{{form.email.label}}:
+                                            {{form.email}}
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="fa fa-key"> </i></span>
-											<input name="psw" type="password" class="form-control" placeholder="Password">
+											{{form.password1.label}}:
+                                            {{form.password1}}
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="fa fa-key"> </i></span>
-											<input name="pswr" type="password" class="form-control" placeholder="Confirm Password">
+											{{form.password2.label}}:
+                                            {{form.password2}}
 										</div>
 									</div>
 									  <button type="submit" class="btn btn-success btn-block">Create Account</button>
-									           <p>if u have account?<a href="/login">Sign in</a></p>
+
+
 								</form>
+								{{ form.errors }}
+
+
+								<p>if u have account?just <a href="/login">Login</a></p>
 							</article>
 						</section></div>
-
 </body>
 </html>
+
